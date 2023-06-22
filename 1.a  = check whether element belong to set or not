@@ -1,28 +1,38 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <set>
 using namespace std;
-void ismember() {set <int> S1 = {1,2,3,4,5,2,8};
-    bool flag = false;
-    int n;
-    cout << "Write the number to check for: ";
-    cin>>n;
-    set<int>::iterator it;
-    
-    for (it = S1.begin(); it != S1.end(); it++){
-        if (n == (*it)){
-            flag = true;
-            
-        }
+
+class Set {
+private:
+    set<int> elements;
+
+public:
+    void addElement(int element) {
+        elements.insert(element);
     }
-    if (flag == true){
-        cout<<"TRUE";
+
+    bool isMember(int element) {
+        return elements.find(element) != elements.end();
     }
-    else{
-        cout << "FALSE";
-    }
-    
-}
-int main()
-{
-   ismember();
-    
+};
+
+int main() {
+    Set mySet;
+
+    mySet.addElement(25);
+    mySet.addElement(50);
+    mySet.addElement(75);
+
+    int element ;
+    cout<<"Enter the element : ";
+    cin>>element;
+   
+
+    if (mySet.isMember(element))
+        cout << element << " TRUE " << std::endl;
+    else
+        cout << element << " FALSE " << std::endl;
+
+ 
+    return 0;
 }
